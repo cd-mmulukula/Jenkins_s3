@@ -14,7 +14,7 @@ pipeline {
                 sh 'cd my-project && zip -r ../my-project.zip *'
             }
         }
-        stage('Upload to S3') stage('Upload') {
+        stage('Upload to S3') {
 
             dir('path/to/your/project/workspace') {
 
