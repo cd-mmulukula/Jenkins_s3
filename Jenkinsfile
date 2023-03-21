@@ -6,7 +6,7 @@ pipeline {
                 checkout([$class: 'GitSCM',
                           branches: [[name: '*/main']],
                           extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'my-project']],
-                          userRemoteConfigs: [[url: 'https://github.com/cd-hgupta/Jenkins_s3.git']]])
+                          userRemoteConfigs: [[url: 'git@github.com:cd-hgupta/Jenkins_s3.git']]])
             }
         }
         stage('Zip Files') {
