@@ -17,16 +17,16 @@ pipeline {
         stage('Upload to S3') {
             steps {
 
-                dir('path/to/your/project/workspace') {
+                dir('/var/lib/jenkins/workspace/Jenkin_s3') {
 
                     pwd(); //Log current directory
 
-                    withAWS(region:'yourS3Region',credentials:'yourIDfromStep2') {
+                    withAWS(region:'us-east-1',credentials:'It6spuwdQ8GAxJohFl+hwoR5BZODMm7QB0d+Dwhf') {
 
                         def identity=awsIdentity();//Log AWS credentials
 
                         // Upload files from working directory 'dist' in your project workspace
-                        s3Upload(bucket:"yourBucketName", workingDir:'dist', includePathPattern:'**/*');
+                        s3Upload(bucket:"jenu", workingDir:'', includePathPattern:'**/*');
                     }
                 }
 
