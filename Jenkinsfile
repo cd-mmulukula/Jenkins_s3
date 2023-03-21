@@ -15,11 +15,22 @@ pipeline {
             }
         }
         stage('Upload to S3') {
-            steps {
-                withAWS(region: "us-east-1", credentials: "It6spuwdQ8GAxJohFl+hwoR5BZODMm7QB0d+Dwhf") {
-                    s3Upload(path: "my-project.zip", bucket: "jenu", fileBaseName: "my-project")
-                }
+
+        dir('/var/lib/jenkins/workspace/Jenkin_s3'){
+
+            pwd(); //Log current directory
+
+            withAWS(region:'us-east-1',credentials:'It6spuwdQ8GAxJohFl+hwoR5BZODMm7QB0d+Dwhf') {
+
+                 def identity=awsIdentity();//Log AWS credentials
+
+                // Upload files from working directory 'dist' in your project workspace
+                s3Upload(bucket:"jenu", workingDir:'', includePathPattern:'**/*');
+               }
+
             }
-        }
+          }
+        
+       }
     }
 }
