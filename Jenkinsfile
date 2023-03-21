@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Upload to S3') {
             steps {
-                withAWS(region: 'us-east-1', credentials: 'It6spuwdQ8GAxJohFl+hwoR5BZODMm7QB0d+Dwhf') {
-                    s3Upload(path: 'my-project.zip', bucket: 'jenu', fileBaseName: 'my-project')
+                withAWS(region: "us-east-1", credentials: "It6spuwdQ8GAxJohFl+hwoR5BZODMm7QB0d+Dwhf") {
+                    s3Upload(path: "my-project.zip", bucket: "jenu", fileBaseName: "my-project")
                 }
             }
         }
