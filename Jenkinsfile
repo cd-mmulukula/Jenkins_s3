@@ -21,7 +21,7 @@ pipeline {
 
                     pwd(); //Log current directory
 
-                    withAWS(region:'us-east-1',credentials:'It6spuwdQ8GAxJohFl+hwoR5BZODMm7QB0d+Dwhf') {
+                    withAWS(region:'us-east-1',credentials:'') {
 
                         
 
